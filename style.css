@@ -3,13 +3,15 @@
     --light-text: rgb(130, 132, 144);
     --hover-link: rgb(45, 109, 212);
     --light-background: rgb(246 247 251);
-    --dark-background:  #363740;
+    --dark-background:  #222329;
 }
 
 *,
 *::after,
 *::before {
    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
 
 body {
@@ -55,28 +57,51 @@ a {
 #main-grid {
    margin: 0;
    display: grid;
-   grid-template-columns: 3fr minmax(300px, 1fr);
+   grid-template-columns: 3fr minmax(400px, 1fr);
    grid-template-rows: 80px 1fr;
-   padding: 20px;
 }
 
 #top-nav-container {
    grid-column:1 / 3;
    grid-row: 1 / 2;
+   background-color: white;
+   border-radius: 8px;
+   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+
    display: flex;
    justify-content: space-between;
-   padding: 20px;
+   padding: 15px;
+   gap: 20px;
+   margin: 15px 20px 20px 30px;
 }
 
 #workspace {
    grid-column:1 / 2;
    grid-row: 2 / 3;
+
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   grid-auto-rows: max-content;
+   gap: 30px;
+   padding: 30px;
+   padding-top: 0px;
 }
 
-#details {
+#details-panel {
    grid-column: 2 / 3;
    grid-row: 2 / 3;
+   background-color: rgb(255, 255, 255);
+   border-radius: 8px;
+   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+   gap: 50px;
+   padding: 20px;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
 }
+
 
 .top-nav-links {
    display: flex;
@@ -92,18 +117,31 @@ a {
    gap: 20px;
 }
 
-#workspace {
-   display: grid;
-   justify-content: center;
-   align-items: center;
-
+.project-section-title {
+   grid-column: 1 / -1;
+   grid-row: 1 / 2;
+   padding-left: 20px;
 }
 
-#details-panel {
+.project-card {
+   background-color: rgb(255, 255, 255);
+   border-radius: 8px;
+   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.075);
+
    display: grid;
-   justify-content: center;
-   align-items: top;
-}
+   gap: 10px;
+   grid-template-rows: max-content 1fr max-content;
+   padding: 20px;
+   transition: all 0.4s;
+ }
+
+ .details-item {
+   display: flex;
+   flex-direction:column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 10px;
+ }
 /*  
  .sidebar i {
     color: #60626e;
